@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/earth"
+    tools:context=".SignUpActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="96dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="96dp"
+        android:layout_marginBottom="40dp"
+        android:onClick="uploadImage"
+        android:layout_above="@+id/lay"
+        android:src="@drawable/ic_add_a_photo_black_24dp"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#FF000000"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/lay"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_centerInParent="true"
+        >
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="write your phone number ..."
+            android:background="@drawable/edit_rounds"
+            android:id="@+id/edtphone"
+            android:drawableStart="@drawable/phonetwo"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:inputType="phone"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="write your email here ..."
+            android:background="@drawable/edit_rounds"
+            android:drawableStart="@drawable/emailtwo"
+            android:id="@+id/edtemail"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:inputType="textEmailAddress"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/name"
+            android:hint="write your name..."
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_rounds"
+            android:id="@+id/edtname"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:inputType="text"
+            />
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="write your password..."
+            android:drawableStart="@drawable/passwordtwo"
+            android:id="@+id/edtpassword"
+            android:background="@drawable/edit_rounds"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="false"
+            android:inputType="textPassword"
+            />
+
+
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/btnSignup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_alignParentBottom="true"
+        android:text="SignUp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:layout_weight="1"
+        android:textAllCaps="false"
+        android:layout_margin="8dp"
+        android:background="@drawable/button_rounds"
+        />
+
+</RelativeLayout>

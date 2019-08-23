@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FriendsLocator</string>
+    <string name="slogan">connect with your friends from anyplace e</string>
+    <string name="logOut">LogOut</string>
+    <string name="title_activity_maps_locate">Map</string>
+    <string name="Settings">Settings</string>
+</resources>

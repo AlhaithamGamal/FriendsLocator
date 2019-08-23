@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/container"
+    >
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/image_contact"
+        android:layout_width="96dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="96dp"
+        android:layout_marginBottom="40dp"
+        android:onClick="uploadImage"
+        android:layout_above="@+id/lay"
+        android:src="@drawable/ic_add_a_photo_black_24dp"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#FF000000"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/name"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="@color/colorPrimary"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/email"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="@color/colorPrimary"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/phone"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="@color/colorPrimary"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/status"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="@color/colorPrimary"
+            />
+
+
+    </LinearLayout>
+
+</LinearLayout>
