@@ -133,14 +133,14 @@ public class SignUpActivity extends AppCompatActivity {
                                         @Override
                                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                             progressDialog.dismiss();
-                                //            uploadProfileImage();
+                                  uploadProfileImage();
 
                                                 usertwo = new User(email.getText().toString(), name.getText().toString(), password.getText().toString(), phone.getText().toString());
                                                emailFormat = Email.replace(".", ",");
                                                 table_user.child("currentId").child(emailFormat).setValue(usertwo);
 
                                                 Toast.makeText(getApplicationContext(), "Account created successfully ", Toast.LENGTH_LONG).show();
-                                                Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
+                                                Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                                                 startActivity(intent);
 //                                            Animatoo.animateCard(getApplicationContext());
 
@@ -212,11 +212,9 @@ public class SignUpActivity extends AppCompatActivity {
                                     downloadUri = String.valueOf(uri);
                                     Map<String, Object> map = new HashMap<>();
                                     map.put("photoURL", uri.toString());
+                                    map.put("email", email.getText().toString());
                                     storagedatabaseRef.push().setValue(map);
                                     progressDialogImage.dismiss();
-                                  usertwo.setImageURI(downloadUri);
-                              //      Common.currentContact.setImageURL(downloadUri);
-                                    table_user.child("currentId").child(emailFormat).child("imageURI").setValue(downloadUri);
                                     Toast.makeText(getApplicationContext(), "uploaded successfully ", Toast.LENGTH_LONG).show();
 
 

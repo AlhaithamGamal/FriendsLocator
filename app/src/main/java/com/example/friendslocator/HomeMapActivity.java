@@ -79,10 +79,9 @@ public class HomeMapActivity extends AppCompatActivity implements LocationListen
         });
 
         // mGoogleApiClient.disconnect();
-        defineGoogleApiClient();
         swt.setChecked(false);
+        defineGoogleApiClient();
         mGoogleApiClient.disconnect();
-
         swt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -183,13 +182,7 @@ public class HomeMapActivity extends AppCompatActivity implements LocationListen
             startActivity(inte);
             Animatoo.animateCard(this);
         }
-        else
-            if(item.getItemId() == R.id.settings){
-
-                Intent intent = new Intent(HomeMapActivity.this,ProfileActivity.class);
-                startActivity(intent);
-                Animatoo.animateCard(this);
-            }
+     
         return super.onOptionsItemSelected(item);
 
     }

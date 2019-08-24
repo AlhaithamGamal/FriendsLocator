@@ -37,10 +37,16 @@ EditText edtEmail,edtPassword;
 TextView forgetPassword;
 Button btnSignIn;
 CheckBox ckRemember;
+    FirebaseDatabase fd;
+    public String emailFound = "";
+    public String imageFound = "";
+    DatabaseReference storagedatabaseRef;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+
         Paper.init(this);
         edtEmail = findViewById(R.id.edtemail);
         forgetPassword = findViewById(R.id.forget_password);
@@ -51,6 +57,8 @@ CheckBox ckRemember;
         final FirebaseAuth mAuth = FirebaseAuth.getInstance();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference table_user = database.getReference();
+        fd = FirebaseDatabase.getInstance();
+        storagedatabaseRef =fd.getReference("imgs");
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,7 +100,30 @@ CheckBox ckRemember;
 
                                                 progressDialog.dismiss();
                                                 Toast.makeText(getApplicationContext(),"welcome "+userF.getEmail().toString()+"Check your profile from the settings above to upload your image and update your status",Toast.LENGTH_SHORT).show();
+                                                storagedatabaseRef.addValueEventListener(new ValueEventListener() {
+                                                    @Override
+                                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                        for(DataSnapshot postSnap : dataSnapshot.getChildren()){
+                                                            emailFound = postSnap.child("email").getValue().toString();
+                                                           imageFound = postSnap.child("photoURL").getValue().toString();
+                                                            if(emailFound .equals(email)){
+
+                                                                break;
+                                                            }
+
+
+                                                        }
+
+                                                    }
+
+                                                    @Override
+                                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                                    }
+                                                });
+
                                                     Intent intent = new Intent(SignInActivity.this, HomeMapActivity.class);
+                                                    userF.setImageURI(imageFound);
                                                     Common.currentUser = userF;
                                                     Common.currentContact = new Contacts(userF.getName(),userF.getImageURI(),userF.getEmail(),userF.getPhone(),"");
                                                     startActivity(intent);
